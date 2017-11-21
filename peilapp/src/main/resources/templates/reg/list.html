@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript" src="${basePath}/js/jquery-2.1.1.min.js"></script>
+<body class="site-menubar-fold site-menubar-keep">
+	<div class="page profile profile_index">
+		<div class="page-content">
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+					<h1>我是一个注册页面</h1>
+					<form id="regform">
+						<div class="form-group">
+							<label for="exampleInputEmail1">用户名</label> <input type="text"
+								class="form-control" id="username" placeholder="请输入用户名">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">账号</label> <input type="text"
+								value="18273905762" class="form-control" maxlength="11"
+								id="account" id="account" placeholder="请输入手机号码">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">密码</label> <input type="password"
+								class="form-control" id="password" placeholder="请输入密码">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">短信验证码</label> <input type="text"
+								class="form-control" id="smscode" placeholder="请输入短信验证码">
+							<button class="btn btn-success" id="sendbtn">发送短信</button>
+						</div>
+						<div class="radio">
+							<label> <input type="radio" name="male" value="1" checked>
+								男
+							</label>
+						</div>
+						<div class="radio">
+							<label> <input type="radio" name="male" value="2">
+								女
+							</label>
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox" name="hobbys" value="1"
+								checked> 看书
+							</label>
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox" name="hobbys" value="2">
+								电影
+							</label>
+						</div>
+						<div class="checkbox">
+							<label> <input type="checkbox" name="hobbys" value="3">
+								旅游
+							</label>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">自我介绍</label>
+							<textarea class="form-control" id="intro" placeholder="请输入自我介绍"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">所在省份</label> <select
+								id="provinceId" class="form-control">
+								<option value="">--请选择--</option>
+								<option value="10001">长沙</option>
+								<option value="10002">长沙2</option>
+								<option value="10003">长沙3</option>
+							</select>
+						</div>
+						<button id="submitreg" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+			$(function(){
+			   $("#submitreg").on("click",function(e){
+				     e.preventDefault(); 
+				   //用户名
+		             var username=$("#username").val();
+		             //账号
+		             var account=$("#account").val();
+		             //密码
+		             var password=$("#password").val();
+		             //性别
+		             var smscode=$('input:radio[name="male"]:checked').val();
+		             //爱好
+		             var habbys=$("input:checkbox[name='hobbys']:checked");
+		             var harr=[];
+		             for(i=0;i<habbys.length;i++){
+		                 harr.push(habbys[i].value);
+		             }
+		             //城市
+		             var provinceId=$("#provinceId").val();
+		             //自我介绍
+		             var intro=$("#intro").val();
+		             var reg={"username":username,"account":account,"password":password,
+							"smscode":smscode,"intro":intro,"provinceId":provinceId};
+					$.ajax({
+						type:"post",
+						url:"reglist",
+						data:reg,
+						success:function(data){
+							if(data=="success"){
+								alert("success");
+							}else{
+								alert("fail");
+							}
+						}
+					});
+			  });
+		});
+		</script>
+</body>
+</html>

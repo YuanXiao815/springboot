@@ -1,0 +1,133 @@
+<body class="big-size">
+	<#include "/public/common2.html"/>
+	<div class="container note">
+		<!-- 顶部下载 Banner -->
+		<!-- 引入头部 -->
+		<#include "/public/head.html"/>
+		<h1 class="title"></h1>
+		<!-- 作者信息和文章计数器 -->
+		<div class="article-info">
+			<!-- 作者信息 -->
+			<a class="avatar" href="javascript:void(0)"> <img
+				src="${basePath}/resources/${contents.headerPic}" alt="180">
+				<div class="name"></div>
+			</a> <span class="label">签约作者</span>
+			<!-- 文章 meta -->
+			<div class="meta">
+				<span>时间</span> <a href="javascript:void(null)" class="app-open"
+					data-app-opener=""> <i class="iconfont ic-openinapp"></i> 打开App
+				</a>
+			</div>
+		</div>
+
+		<!-- 文章内容 -->
+		<div class="content ios-style" data-note-content="">
+			<div class="image-package">
+				<img src="${basePath}/${contents.img}" onerror="imgError2(this)"
+					data-original-src="//upload-images.jianshu.io/upload_images/195046-f9015b58c4648560.jpg"><br>
+				<div class="image-caption"></div>
+			</div>
+			<!-- 打赏 -->
+			<div data-v-44129108="" class="support-author">
+				<!---->
+				<p data-v-44129108="">喜欢就点赞，有用就打赏2块吧</p>
+				<a data-v-44129108="" class="btn btn-pay reward-button"> 赞赏支持</a>
+				<div data-v-44129108="" class="supporter">
+					<span data-v-44129108=""> 2人赞赏 </span>
+					<ul data-v-44129108="" class="support-list">
+						<li data-v-44129108=""><a data-v-44129108="" class="avatar"><img
+								onerror="imgError(this)" data-v-44129108=""
+								src="//upload.jianshu.io/users/upload_avatars/5599929/2fa07c2e-5f13-48ac-8d69-8f4ffc0fc656?imageMogr2/aut3o-orient/strip|imageView2/1/w/80/h/80"></a>
+						</li>
+						<li data-v-44129108=""><a data-v-44129108="" class="avatar"><img
+								onerror="imgError(this)" data-v-44129108=""
+								src="//upload.jianshu.io/users/upload_avatars/1079707/97ac5edec4fb?imageMogr2/auto-orient/strip|imageView32/1/w/80/h/80"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+			<a href="javascript:void(0);" id="addComment">添加评论</a>
+			<!-- 评论列表 -->
+			<div data-v-7a4def88="" class="comment-list">
+				<div id="comment-listbox"></div>
+				<a data-v-7a4def88="" class="load-more">加载更多评论 <i
+					data-v-7a4def88="" class="iconfont ic-show"></i></a>
+
+				<div data-v-7a4def88="" class="modal write-comment in">
+					<div data-v-7a4def88="" class="mask"></div>
+					<div data-v-7a4def88="" class="modal-content">
+						<textarea data-v-7a4def88="" maxlength="400" id="content"
+							placeholder="写下你的评论..."></textarea>
+						<div data-v-7a4def88="" class="bottom-bar">
+							<a data-v-7a4def88="" href="javascript:void(0);" class="btn-send">回复</a>
+							<a data-v-7a4def88="" href="javascript:void(0);" class="cancel">取消</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="split-line"></div>
+			<div class="top-title">文章作者</div>
+			<div class="note-author">
+				<a class="avatar"
+					href="/u/2b909da3afcb?utm_medium=note-author-link&amp;utm_source=mobile">
+					<img
+					src="//upload.jianshu.io/users/upload_avatars/3078704/6901f313-0c00-417a-85b2-c67902bb8ed9.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180"
+					alt="180">
+				</a>
+				<div class="author-info">
+					<div class="name">南有南风</div>
+					<!-- 签约作者标签 -->
+
+					<div class="description">写了 144694 字，获得了 12376 个喜欢</div>
+					<p>微信公众号ID：南来有风 【大学生活】【摄影】专题编辑 经不起夸的女同学</p>
+
+					<!-- 关注按钮 -->
+					<a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+					<!---->
+
+					<!-- 个人页链接 -->
+					<a class="load-more"
+						href="/u/2b909da3afcb?utm_medium=note-author-link&amp;utm_source=mobile">
+						作者个人主页 <i class="iconfont ic-link"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="split-line"></div>
+			<div class="top-title">
+				推荐阅读 <a class="more"
+					href="/?utm_medium=note-recommendation-link-index&amp;utm_source=mobile">
+					更多精彩内容 <i class="iconfont ic-link"></i>
+				</a>
+			</div>
+			<div class="download-banner">
+				<a
+					href="/apps/download?utm_medium=bottom-download-banner&amp;utm_source=mobile">
+					<div class="name">
+						下载简书App<br>随时随地发现和创作内容
+					</div>
+					<div class="download-img"></div>
+				</a>
+			</div>
+			<div data-v-04adf794="">
+				<div data-v-04adf794="" class="recommend-note"></div>
+			</div>
+
+		</div>
+		<script>
+			$(function() {
+				$(".modal-content").hide();
+				$(".mask").hide();
+				$(".write-comment").hide();
+
+			});
+		</script>
+</body>
+</html>
+</body>
+</html>

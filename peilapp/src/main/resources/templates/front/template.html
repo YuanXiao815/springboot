@@ -1,0 +1,26 @@
+<#list conts as content>
+	<li class="note-flow">
+		<a>
+			<div class="author">
+				<a href="${basePath}/bgcontent/detail/${content.id}" class="hre">
+					<img src="${content.headerPic}" class="avatar">
+					<i>${content.account}</i>
+				</a> 
+				<a href="${basePath}/bgcontent/detail/${content.id}" class="hre">${content.title}</a>
+			</div>
+			<div>
+				<a href="${basePath}/bgcontent/detail/${content.id}">
+					<img src="${content.img}">
+				</a>
+			</div>
+			${content.tag}
+		</a>
+		<div class="meta">
+			<a href="/c/43bddff215e8" class="collection-tag">
+				行业故事汇
+			</a>
+			2 评论 · ${content.loves} 喜欢
+			<!---->
+		</div>
+	</li>
+</#list>

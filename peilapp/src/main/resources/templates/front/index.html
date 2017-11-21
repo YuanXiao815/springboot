@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>前端首页</title>
+<meta name="description"
+	content="简书是一个优质的创作社区，在这里，你可以任性地创作，一篇短文、一张照片、一首诗、一幅画……我们相信，每个人都是生活中的艺术家，有着无穷的创造力。">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="${bgbasePath}/resources/css/index.css"
+	type="text/css"></link>
+<link rel="stylesheet" href="${bgbasePath}/resources/css/m.css"
+	type="text/css"></link>
+<link rel="stylesheet"
+	href="${bgbasePath}/resources/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="${bgbasePath}/resources/css/carousel.css" />
+<link rel="stylesheet" href="${bgbasePath}/resources/css/swiper.min.css"
+	type="text/css" />
+<style>
+.swiper-container {
+	height: 300px;
+}
+
+.swiper-container img {
+	width: 100%;
+	height: 300px;
+}
+
+.swiper-slide {
+	width: 100%;
+}
+</style>
+<style type="text/css">
+.container {
+	max-width: 640px;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+	<div class="navbar navbar-default">
+		<div class="container index">
+			<!-- 轮播图 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="${bgbasePath}/resources/img/37b39d8d454598548edcfee6d40eb19c.jpg" /><i
+							class="swiper-slider">11111</i>
+					</div>
+					<div class="swiper-slide">
+						<img
+							src="${bgbasePath}/resources/img/6efcceed07d7f495e35148ed2f61198f.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<img
+							src="${bgbasePath}/resources/img/097cdfd35c4a7a47adfdc0ef35ce2089.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<img
+							src="${bgbasePath}/resources/img/6ddd3361add04c67b2598b8b498fc7ae.jpg" />
+					</div>
+					<div class="swiper-slide">
+						<img
+							src="${bgbasePath}/resources/img/44b813ae202b991edd7f40cf40be9b43.jpg" />
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-scrollbar"></div>
+			</div>
+			<div>
+				<div class="split-line"></div>
+				<div class="top-title">
+					<span>热门专题</span> <span class="collection-change"><i
+						class="iconfont ic-search-change" style="transform: rotate(0deg);"></i>换一批
+					</span>
+				</div>
+				<div class="recommend-collection">
+					<a href="/c/RfYyQj?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">散文</a> <a
+						href="/c/20f7f4031550?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">社会热点</a> <a
+						href="/c/074e475b2f45?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">成长励志</a> <a
+						href="/c/b3734232a706?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">微小说</a> <a
+						href="/c/71169ced18ac?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">大学生活</a> <a
+						href="/c/Jgq3Wc?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">上班这点事儿</a> <a
+						href="/c/bc2986022c08?utm_source=mobile&amp;utm_medium=collections"
+						class="collection">时差党</a>
+				</div>
+			</div>
+
+			<!-- 热门文章 -->
+			<div class="flow-list-container">
+				<div class="split-line"></div>
+				<ul class="flow-list-ul" id="bgcontent"></ul>
+			</div>
+
+		</div>
+	</div>
+
+
+	<script type="text/javascript"
+		src="${bgbasePath}/resources/js/jquery-1.11.2.min.js"></script>
+	<script src="${bgbasePath}/resources/js/bootstrap.min.js"></script>
+	<script src="${bgbasePath}/resources/js/swiper.min.js"></script>
+	<script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 10,
+            //slidesPerView: 2,
+            centeredSlides: true,
+            grabCursor: true,
+            autoplay: 2500,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            scrollbar: '.swiper-scrollbar',
+            pagination: '.swiper-pagination',
+            history: 'slide',
+            paginationClickable: true,
+    		autoplayDisableOnInteraction: false
+        });
+   	 </script>
+	<script type="text/javascript">
+		$(function(){
+		 var pageNo=0
+		 var pageSize=5; 
+		 loadbgcontent();
+			
+			function loadbgcontent(){
+				var params = {"pageNo" : pageNo*pageSize,"pageSize" : pageSize};			
+				$.ajax({
+					type : "post",
+					url : "/bgcontent/bgtemplate",
+					data:params,
+					success : function(data) {
+						$("#bgcontent").html(data);
+					}
+				});
+			};
+		});
+	</script>
+</body>
+
+</html>

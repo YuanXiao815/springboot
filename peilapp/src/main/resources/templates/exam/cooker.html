@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<#include  "/public/common.html">
+</head>
+<body class="site-menubar-fold site-menubar-keep">
+	<#include "/public/left.html">
+	<div class="page profile profile_index">
+		<div style="background: #FFF; padding: 30px; color: #333">
+			<h1>cookie学习</h1>
+			<hr />
+			<p>描述：cookie 是什么？</p>
+			<h2>通过stroage模拟 qq空间的本地缓存</h2>
+			<textarea rows="20" cols="80" id="content"></textarea>
+			<ol>
+				<li>1.jquery()引用</li>
+				<li>2.取个id=“content” 绑定onkeydown</li>
+				<li>3.将数据放入缓存中：localStorage.setItem(key,value)</li>
+			</ol>
+		</div>
+	</div>
+	<script>
+            $(function(){
+            	
+            	$("#content").val(localStorage.getItem("val"));
+            	
+            	$("#content").on("keydown",function(){
+                   var textarea=$(this).val();
+                   localStorage.setItem("val",textarea);
+               });
+            });
+	</script>
+</body>
+</html>

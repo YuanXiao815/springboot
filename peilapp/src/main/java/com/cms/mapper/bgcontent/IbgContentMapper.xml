@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cms.mapper.bgcontent.IbgContentMapper">
+
+	<select id="selectContent" resultType="hashMap" parameterType="params">
+		SELECT
+		mc.id,
+		mc.title,
+		mc.STATUS,
+		mc.tag,
+		mu.account,
+		mu.header_pic as headPic
+		FROM
+		mk_content mc
+		LEFT JOIN mk_user mu ON mu.id = mc.user_id
+		LIMIT #{pageNo},#{pageSize}
+	</select>
+
+
+
+	<select id="selectIdbgContent" resultType="hashmap" parameterType="int">
+		SELECT
+			mc.title,
+			mc.content,
+			mc. STATUS,
+			mc.loves,
+			mc.hits,
+			mc.img,
+			mc.create_time AS createTime,
+			mc.tag,
+			mu.username
+		FROM
+			mk_content mc
+			LEFT JOIN mk_user mu ON mu.id = mc.user_id
+		WHERE
+			mc.id=#{id}
+	</select>
+	<!-- <insert id="addContent" parameterType="content" useGeneratedKeys="true" 
+		keyProperty="id" keyColumn="id"> insert into mk_content( title, content, 
+		img, status, loves, hits, user_id, tag) values (#{title},#{content},#{img},#{status},#{loves},#{hits},#{userId},#{tag}) 
+		</insert> -->
+	<!-- <update id="updateContent" parameterType="content"> UPDATE mk_content 
+		SET <if test="title!=null">title=#{title},</if> <if test="img!=null">img=#{img},</if> 
+		<if test="content!=null">content=#{content},</if> <if test="status!=null">status=#{status},</if> 
+		<if test="tag!=null">tag=#{tag},</if> <if test="categoryId!=null">category_id=#{categoryId},</if> 
+		<if test="hits!=null">hits=#{hits},</if> <if test="loves!=null">loves=#{loves},</if> 
+		update_time=NOW() WHERE id = #{id} </update> -->
+</mapper>
